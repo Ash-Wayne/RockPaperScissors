@@ -1,0 +1,87 @@
+<script>
+
+    function getComputerChoice() {
+        // get random number between 0, 1, and 2
+        let randomNumber = Math.floor(Math.random()*3);
+
+        //  if number is 0, assign rock as the choice
+        //  if number is 1, assign paper as the choice
+        //  if number is 2, assign scissors as the choice
+        switch (randomNumber) {
+            case 0: 
+                return 'rock';
+            case 1:
+                return 'paper';
+            case 2:
+                return 'scissors';
+        }
+    }
+    
+
+    // define global variables for player wins and computer wins
+    let playerWins = 0;
+    let computerWins = 0;
+
+    function playRound(playerChoice, computerChoice, round) {
+        // depending on playerChoice and computerChoice, assign winner by incrementing their score by 1
+        // then announce the round's winner and display current score
+        // capture the result and return it
+        if (computerChoice === 'rock' && playerChoice === 'paper') {
+            playerWins++;
+            return 'You won round ' + round + '! Paper beats Rock\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        } else if (computerChoice === 'rock' && playerChoice === 'scissors') {
+            computerWins++
+            return 'You lose round ' + round + '! Rock beats Scissors\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        } else if (computerChoice === 'paper' && playerChoice === 'rock') {
+            computerWins++
+            return 'You lose round ' + round + '! Paper beats Rock\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        } else if (computerChoice === 'paper' && playerChoice === 'scissors') {
+            playerWins++
+            return 'You won round ' + round + '! Scissors beats Paper\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        } else if (computerChoice === 'scissors' && playerChoice === 'rock') {
+            playerWins++
+            return 'You won round ' + round + '! Rock beats Scissors\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        } else if (computerChoice === 'scissors' && playerChoice === 'paper') {
+            computerWins++;
+            return 'You lose round ' + round + '! Scissors beats Paper\nPlayer: ' + playerWins + '\nComputer: ' + computerWins;
+        }
+    }
+
+    function game() {
+        // initialize game with round 1
+        let i = 1; 
+
+        // keep playing as long as neither player or the computer has secured 3 wins (out of 5)
+        while (playerWins < 3 && computerWins < 3) {
+            // get player's choice and computer's choice
+            let playerChoice = prompt('Enter your choice!').toLowerCase();
+            let computerChoice = getComputerChoice();
+
+            // as long as the player keeps entering an invalid choice, keep prompting them to enter a valid one
+            while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+                playerChoice = prompt('INVALID CHOICE! You must enter "rock" or "paper" or "scissors" to play.').toLowerCase();
+            }
+
+            // as long as the choices result in a tie, keep getting new choices from player and computer
+            while (computerChoice === playerChoice) {
+                playerChoice = prompt('TIE! Play again!').toLowerCase();
+                computerChoice = getComputerChoice();
+            }
+
+            // play the round with valid choices and display the round's results
+            console.log(playRound(playerChoice, computerChoice, i));
+            
+            // go to the next second and play again (repeat the loop)
+            i++;
+        }
+
+        // loop has ended since someone secured 3 wins
+        // display final results depending on who won
+        if (playerWins === 3) {
+            console.log('You won the game! Final score:\nPlayer: ' + playerWins + '\nComputer: ' + computerWins);
+        } else if (computerWins === 3) {
+            console.log('You lost the game! Final score:\nPlayer: ' + playerWins + '\nComputer: ' + computerWins);
+        }
+    }
+
+</script>
