@@ -1,12 +1,11 @@
 <script>
 
+    let playerWins = 0;
+    let computerWins = 0;
+
     function getComputerChoice() {
-        // get random number between 0, 1, and 2
         let randomNumber = Math.floor(Math.random()*3);
 
-        //  if number is 0, assign rock as the choice
-        //  if number is 1, assign paper as the choice
-        //  if number is 2, assign scissors as the choice
         switch (randomNumber) {
             case 0: 
                 return 'rock';
@@ -16,11 +15,6 @@
                 return 'scissors';
         }
     }
-    
-
-    // define global variables for player wins and computer wins
-    let playerWins = 0;
-    let computerWins = 0;
 
     function playRound(playerChoice, computerChoice, round) {
         // depending on playerChoice and computerChoice, assign winner by incrementing their score by 1
@@ -71,12 +65,12 @@
             // play the round with valid choices and display the round's results
             console.log(playRound(playerChoice, computerChoice, i));
             
-            // go to the next second and play again (repeat the loop)
+            // go to the next round and play again (repeat the loop)
             i++;
         }
 
         // loop has ended since someone secured 3 wins
-        // display final results depending on who won
+        // now display final results depending on who won
         if (playerWins === 3) {
             console.log('You won the game! Final score:\nPlayer: ' + playerWins + '\nComputer: ' + computerWins);
         } else if (computerWins === 3) {
