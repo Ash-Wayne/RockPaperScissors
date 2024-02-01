@@ -1,0 +1,53 @@
+h1 {
+    text-align: center;
+}
+
+.main-div {
+    border: 1px solid black;
+    display: flex;
+    margin: 30px 300px 20px 300px;
+}
+
+.player-selection-div, .computer-selection-div {
+    border: 1px solid black;
+    height: 400px;
+    flex: 1 1 0;
+    text-align: center;
+}
+
+.player-text {
+    color: blue;
+}
+
+.computer-text {
+    color: red;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rock, .paper, .scissors {
+    font-size: x-large;
+}
+
+.results-h2 {
+    text-decoration: underline;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.score, .results {
+    text-align: center;
+    white-space: pre;
+    font-size: large;
+}
+
+.winner {
+    margin-top: 16px;
+    text-align: center;
+    color: purple;
+    white-space: pre-line;
+}
