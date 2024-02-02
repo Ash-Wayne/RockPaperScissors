@@ -1,19 +1,19 @@
 
 const rockImage = document.createElement('img');
-rockImage.src = "./../img/rock.png";
+rockImage.src = "../img/rock.png";
 rockImage.style.width = '300px';
 rockImage.style.height = '300px';
 const rockImage2 = rockImage.cloneNode();
 
 
 const paperImage = document.createElement('img');
-paperImage.src = "./../img/paper.png";
+paperImage.src = "../img/paper.png";
 paperImage.style.width = '300px';
 paperImage.style.height = '300px';
 const paperImage2 = paperImage.cloneNode();
 
 const scissorsImage = document.createElement('img');
-scissorsImage.src = "./../img/scissors.png";
+scissorsImage.src = "../img/scissors.png";
 scissorsImage.style.width = '300px';
 scissorsImage.style.height = '300px';
 const scissorsImage2 = scissorsImage.cloneNode();
